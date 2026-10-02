@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon: #6B0B23;
+  --color-maroon-dark: #7A021D;
+  --color-maroon-light: #8B1A35;
+  --color-dark: #292D32;
+  --color-cream: #FDF8F4;
+  --color-warm-gray: #F7F5F3;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  /* Prevent anchored sections from hiding behind sticky headers */
+  scroll-padding-top: 96px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html.lenis-enabled {
+  scroll-behavior: auto;
+}
+
+/* Respect user accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-dark);
+  background-color: #ffffff;
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.75s ease-out forwards;
+}
+
+@utility animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+@utility animate-slide-down {
+  animation: slide-down 0.4s ease-out forwards;
+}
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbars for scrollbar-hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-sleek {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-sleek::-webkit-scrollbar {
+  display: none;
+}
+
+@utility filter-cream {
+  filter: brightness(0) invert(1) sepia(0.15) saturate(0.8) hue-rotate(10deg) brightness(0.96);
+}
+
+@utility filter-maroon {
+  filter: brightness(0) saturate(100%) invert(8%) sepia(80%) saturate(4000%) hue-rotate(330deg) brightness(60%) contrast(120%);
+}
